@@ -85,8 +85,12 @@ async function askQuestion(){
 	});
 	
 	console.log(data["answer"]);
+}		
 	
+
+async function transcribe()
+{
+	audio = document.getElementById("audioFile").value;
 	
-	
-	
+	console.log(audio)
 }
