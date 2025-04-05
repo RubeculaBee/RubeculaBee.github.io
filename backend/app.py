@@ -87,12 +87,12 @@ def transcribeAudio():
     filename = 'audio'
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     
-    model = whisper.load_model("tiny.en")
-    result = model.transcribe(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    #model = whisper.load_model("tiny.en")
+    #result = model.transcribe(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     
-    print(result['text'])
+    #print(result['text'])
     
-    response = jsonify({'message': "File Uploaded!"})
+    #response = jsonify({'message': "File Uploaded!"})
     return response, 200
 
     
