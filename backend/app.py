@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS, cross_origin
 from google import genai
+from google.genai import types
 import json
 import os.path
 
@@ -55,11 +56,15 @@ def askQuestion():
 	data = request.json
 	
 	userQuestion = data["question"]
+	userInstruction = data["instruction"]
 	
 	client = genai.Client(api_key=key)
 	
 	response = client.models.generate_content(
-    model="gemini-2.0-flash", contents=userQuestion
+    model="gemini-2.0-flash",
+    config=types.GenerateContentConfig(
+		system_instruction=userInstruction),
+    contents=userQuestion
 	)
 	
 	out = response.text

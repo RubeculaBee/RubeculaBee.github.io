@@ -73,9 +73,11 @@ async function saveAPIKey(){
 
 async function askQuestion(){
 	userQuestion = document.getElementById("question").value;
+	userInstructions = document.getElementById("instructions").value;
 	
 	const info = {
-		"question": userQuestion
+		"question": userQuestion,
+		"instruction": userInstructions
 	};
 	
 	const data = await fetchUrlData("http://127.0.0.1:5000/question", {
@@ -85,6 +87,8 @@ async function askQuestion(){
 	});
 	
 	console.log(data["answer"]);
+	
+	document.getElementById("answer").innerHTML = data["answer"];
 }		
 	
 
