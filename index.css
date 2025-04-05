@@ -40,3 +40,9 @@ button
 	margin-bottom: 16px;
 	border-radius: 0px;
 }
+
+#err
+{
+	text-align: center;
+	color: #c90000;
+}

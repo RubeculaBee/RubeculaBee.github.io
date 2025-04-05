@@ -1,6 +1,5 @@
 const baseURL = "http://127.0.0.1:5000/connect";
 
-
 //This is the basic connect function!
 async function fetchUrlData(url, options = {}){
 	const response = await fetch(url, options);
@@ -17,6 +16,9 @@ async function fetchUrlData(url, options = {}){
 
 
 async function testConnection(){
+	
+	// Element that will display error message
+	const errorMessage = document.getElementById("err");
 	
 	//let output = document.getElementById("status");
 	
@@ -38,7 +40,9 @@ async function testConnection(){
 		
 	} catch (error){
 		//Add code here to redirect to put out error message saying not connected!
-		output.innerHTML = "NOT CONNECTED!"
+		//output.innerHTML = "NOT CONNECTED!"
+		console.log("failed")
+		errorMessage.innerHTML = "Failed to connect!"
 	}
 	
 }
