@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS, cross_origin
 import json
 import os.path
+import whisper
 
 app = Flask(__name__)
 CORS(app)
@@ -44,10 +45,14 @@ def createKey():
 	return response, 200
 	
 	
-		
+@app.route("/transcribeAudio", methods=['POST'])
+def transcribeAudio():
+    data = request.json
     
-
+    model = whisper.load_model("tiny.en")
+    result = model.transcribe(data["file"])
     
+    return result, 200
     
 if __name__ == '__main__':
 	app.run()
