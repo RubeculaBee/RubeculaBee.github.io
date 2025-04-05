@@ -92,9 +92,3 @@ async function askQuestion(){
 	
 	document.getElementById("answer").innerHTML = data["answer"];
 }		
-	
-
-async function transcribe()
-{
-
-}

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, request, jsonify, redirect
 from flask_cors import CORS, cross_origin
 from google import genai
 from google.genai import types
@@ -81,16 +81,11 @@ def askQuestion():
 	
 	
 	
-@app.route("/transcribeAudio", methods=['POST'])
-def transcribeAudio():
+@app.route("/saveFile", methods=['POST'])
+def saveFile():
     file = request.files['file']
     filename = 'audio'
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    
-    #model = whisper.load_model("tiny.en")
-    #result = model.transcribe(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-    
-    #print(result['text'])
     
     response = jsonify({'message': "File Uploaded!"})
     return response, 200
