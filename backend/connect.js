@@ -47,6 +47,30 @@ async function testConnection(){
 	
 }
 
+async function saveAPIKey(){
+	
+	//Get data from Javascript form
+	userKey = document.getElementById("apikey")
+	let userKeyValue = userKey.value;
+	
+	//Package Javascript data in a JSON format
+	const info = {
+		"key": userKeyValue
+	};
+	
+	//Send the data to Flask via a POST
+	const data = await fetchUrlData("http://127.0.0.1:5000/createAPIKey", {
+		method: 'POST',
+		headers: { 'Content-Type' : 'application/json' },
+		body: JSON.stringify(info)
+	});
+	
+	//Receive data from Flask
+	if(data["keyUploaded"]){
+		window.location.replace("main.html")
+	}
+}
+
 async function transcribe()
 {
 	audio = document.getElementById("audioFile").value;
