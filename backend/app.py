@@ -3,11 +3,17 @@ from flask_cors import CORS, cross_origin
 from google import genai
 from google.genai import types
 from werkzeug.utils import secure_filename
+from pydantic import BaseModel
 import json
 import os.path
 import whisper
 
 UPLOAD_FOLDER = 'upload'
+
+class studyInfo(BaseModel):
+	topic: str
+	keyPoints: list[str]
+	exampleProblem: list[str]
 
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -67,19 +73,24 @@ def askQuestion():
 	
 	data = request.json
 	
-	userQuestion = "I am giving you the transcript of a lecture. When you summarize the following transcript, I want you to pull out specifc information and sort them into sections. The first section should be a single sentence description of the topic of the lecture. The second section should be the key points taught in the lecture. The third section should be an example of a problem that was taught in the lecture, and you should work through that problem step by step. Your response should come in the form of a JSON file. Summarize this: " + transcription
+	#userQuestion = "I am giving you the transcript of a lecture. When you summarize the following transcript, I want you to pull out specifc information and sort them into sections. The first section should be a single sentence description of the topic of the lecture. The second section should be the key points taught in the lecture. The third section should be an example of a problem that was taught in the lecture, and you should work through that problem step by step. Your response should come in the form of a JSON file. Summarize this: " + transcription
+	userQuestion = "Summarize this transcript of a lecture. Please make sure to extract information about the lecture's overall TOPIC, KEY POINTS from the lecture, and an example problem discussed (if present): " + transcription
 	userInstruction = data["instruction"]
 	
 	client = genai.Client(api_key=key)
 	
 	response = client.models.generate_content(
     model="gemini-2.0-flash",
-    config=types.GenerateContentConfig(
-		system_instruction=userInstruction),
-    contents=userQuestion
+    config={
+		'response_mime_type': 'application/json',
+		'response_schema': studyInfo,
+	},
+    contents=userQuestion,
 	)
 	
 	out = response.text
+	
+	print(out)
 	
 	response = jsonify({'answer': out})
 	

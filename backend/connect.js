@@ -87,11 +87,15 @@ async function askQuestion(){
 	});
 	
 	//Trim the ends of the output
-	summary = data["answer"].substring(7, data["answer"].length-3);
+	//summary = data["answer"].substring(7, data["answer"].length-3);
 	//turn the output string into a json object
-	summary = JSON.parse(summary);
+	//summary = JSON.parse(summary);
+	
+	summary = JSON.parse(data["answer"]);
 	
 	console.log(summary);
+	
+	//After this point we need to actually put the JSON onto the gemini page
 	
 	document.getElementById("answer").innerHTML = summary.topic;
 }	
