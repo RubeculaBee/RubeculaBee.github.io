@@ -29,10 +29,7 @@ def connectToPage():
 	#return render_template('upload.html')
 	
 	return response, 200
-	
-@app.route("/createAPIKey", methods=['POST'])
-def createKey():
-	
+		
     
 
     

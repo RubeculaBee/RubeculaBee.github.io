@@ -18,13 +18,13 @@ async function fetchUrlData(url, options = {}){
 
 async function testConnection(){
 	
-	let output = document.getElementById("status");
+	//let output = document.getElementById("status");
 	
 	//Try to connect to the server!
 	try{
 		//Run this code is server is running!
 		data = await fetchUrlData(baseURL);
-		output.innerHTML = "Successfully connected!";
+		//output.innerHTML = "Successfully connected!";
 		
 		console.log(data["keyFound"]);
 		
@@ -33,7 +33,7 @@ async function testConnection(){
 			
 		}else{ //If key is NOT found!
 			console.log("Key Was not found!");
-			window.location.replace("noapikey.html");
+			window.location.replace("backend/noapikey.html");
 		}
 		
 	} catch (error){
