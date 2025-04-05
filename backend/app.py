@@ -58,9 +58,16 @@ def askQuestion():
 	key = f.read()
 	f.close()
 	
+	print("transcribe file")
+	
+	model = whisper.load_model("tiny.en")
+	result = model.transcribe(os.path.join(app.config['UPLOAD_FOLDER'], 'audio'))
+	
+	transcription = result['text']
+	
 	data = request.json
 	
-	userQuestion = data["question"]
+	userQuestion = "Summarize this: " + transcription
 	userInstruction = data["instruction"]
 	
 	client = genai.Client(api_key=key)
