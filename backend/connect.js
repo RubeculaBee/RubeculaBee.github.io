@@ -70,3 +70,10 @@ async function saveAPIKey(){
 		window.location.replace("main.html")
 	}
 }
+
+async function transcribe()
+{
+	audio = document.getElementById("audioFile").value;
+	
+	console.log(audio)
+}
