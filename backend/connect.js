@@ -67,6 +67,26 @@ async function saveAPIKey(){
 	
 	//Receive data from Flask
 	if(data["keyUploaded"]){
-		window.location.replace("main.html")
+		window.location.replace("gemini.html")
 	}
+}
+
+async function askQuestion(){
+	userQuestion = document.getElementById("question").value;
+	
+	const info = {
+		"question": userQuestion
+	};
+	
+	const data = await fetchUrlData("http://127.0.0.1:5000/question", {
+		method: 'POST',
+		headers: { 'Content-Type' : 'application/json' },
+		body: JSON.stringify(info)
+	});
+	
+	console.log(data["answer"]);
+	
+	
+	
+	
 }

@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS, cross_origin
+from google import genai
 import json
 import os.path
 
@@ -42,6 +43,32 @@ def createKey():
 	response = jsonify({'keyUploaded': 1})
 	
 	return response, 200
+	
+@app.route("/question", methods=['POST'])
+def askQuestion():
+	
+	#Open API key file
+	f = open("apikey.txt", "r")
+	key = f.read()
+	f.close()
+	
+	data = request.json
+	
+	userQuestion = data["question"]
+	
+	client = genai.Client(api_key=key)
+	
+	response = client.models.generate_content(
+    model="gemini-2.0-flash", contents=userQuestion
+	)
+	
+	out = response.text
+	
+	response = jsonify({'answer': out})
+	
+	return response, 200
+	
+	
 	
 	
 		
