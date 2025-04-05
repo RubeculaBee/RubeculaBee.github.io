@@ -91,4 +91,16 @@ async function askQuestion(){
 	console.log(data["answer"]);
 	
 	document.getElementById("answer").innerHTML = data["answer"];
-}		
+}	
+
+function makeButton()
+{
+	continueButton = document.createElement('button');
+	continueButton.innerHTML = "Continue"
+	continueButton.onclick = function()
+	{
+		window.location.replace("gemini.html")
+	}
+	
+	document.body.appendChild(continueButton);
+}
