@@ -29,6 +29,21 @@ def connectToPage():
 	#return render_template('upload.html')
 	
 	return response, 200
+	
+@app.route("/createAPIKey", methods=['POST'])
+def createKey():
+	data = request.json
+	print(data)
+	
+	f = open("apikey.txt", "w")
+	f.write(data["key"])
+	f.close()
+	
+	response = jsonify({'keyUploaded': 1})
+	
+	return response, 200
+	
+	
 		
     
 
