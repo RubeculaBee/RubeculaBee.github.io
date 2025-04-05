@@ -74,11 +74,9 @@ async function saveAPIKey(){
 }
 
 async function askQuestion(){
-	userQuestion = document.getElementById("question").value;
 	userInstructions = document.getElementById("instructions").value;
 	
 	const info = {
-		"question": userQuestion,
 		"instruction": userInstructions
 	};
 	
