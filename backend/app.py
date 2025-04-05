@@ -1,10 +1,14 @@
 from flask import Flask, render_template, request, jsonify
 from flask_cors import CORS, cross_origin
+from werkzeug.utils import secure_filename
 import json
 import os.path
 import whisper
 
+UPLOAD_FOLDER = 'upload'
+
 app = Flask(__name__)
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 CORS(app)
 
 #This defines the default root
@@ -47,12 +51,18 @@ def createKey():
 	
 @app.route("/transcribeAudio", methods=['POST'])
 def transcribeAudio():
-    data = request.json
+    file = request.files['file']
+    filename = 'audio'
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     
     model = whisper.load_model("tiny.en")
-    result = model.transcribe(data["file"])
+    result = model.transcribe(os.path.join(app.config['UPLOAD_FOLDER'], filename))
     
-    return result, 200
+    print(result['text'])
+    
+    response = jsonify({'message': "File Uploaded!"})
+    return response, 200
+
     
 if __name__ == '__main__':
 	app.run()
