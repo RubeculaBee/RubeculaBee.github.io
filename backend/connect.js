@@ -94,7 +94,22 @@ async function askQuestion(){
 
 async function transcribe()
 {
-	audio = document.getElementById("audioFile").value;
+	// get audio from file input
+	audio = document.getElementById("audioFile").files[0].name;
+	
+	// Package audio in json
+	const info = {
+		"file": audio
+	}
+	
+	//Send to Flask
+	const transcription = await fetchUrlData("http://127.0.0.1:5000/transcribeAudio", {
+		method: 'POST',
+		headers: { 'Content-Type' : 'application/json' },
+		body: JSON.stringify(info)
+	});
+	
+	console.log(transcription)
 	
 	console.log(audio)
 }
