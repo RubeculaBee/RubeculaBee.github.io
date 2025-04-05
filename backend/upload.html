@@ -7,7 +7,9 @@
 	<body>
 		<h1>Upload the content you want to study</h1>
 		
-		<form action="http://127.0.0.1:5000/transcribeAudio" method="POST" enctype="multipart/form-data">
+		<iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+		
+		<form action="http://127.0.0.1:5000/transcribeAudio" target="dummyframe" method="POST" enctype="multipart/form-data">
 			<label for="audioFile">Upload Audio File: </label> 
 			<input id="audioFile" type="file" name="file" accept="audio/*">
 			<br>

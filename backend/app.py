@@ -92,7 +92,7 @@ def transcribeAudio():
     
     #print(result['text'])
     
-    #response = jsonify({'message': "File Uploaded!"})
+    response = jsonify({'message': "File Uploaded!"})
     return response, 200
 
     
