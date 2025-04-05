@@ -3,6 +3,11 @@ body
 	background-color: #cca262;
 }
 
+p
+{
+	font-size: 1.5em;
+}
+
 #logo
 {
 	display: block;
@@ -13,4 +18,16 @@ body
 h1
 {
 	text-align: center;
+}
+
+#instruction
+{
+	margin-left: 4%;
+	width: 46%;
+}
+
+#buttons
+{
+	display: block;
+	margin-left: 25%
 }
