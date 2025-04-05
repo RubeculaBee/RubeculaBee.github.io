@@ -46,3 +46,10 @@ async function testConnection(){
 	}
 	
 }
+
+async function transcribe()
+{
+	audio = document.getElementById("audioFile").value;
+	
+	console.log(audio)
+}
