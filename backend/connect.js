@@ -86,9 +86,14 @@ async function askQuestion(){
 		body: JSON.stringify(info)
 	});
 	
-	console.log(data["answer"]);
+	//Trim the ends of the output
+	summary = data["answer"].substring(7, data["answer"].length-3);
+	//turn the output string into a json object
+	summary = JSON.parse(summary);
 	
-	document.getElementById("answer").innerHTML = data["answer"];
+	console.log(summary);
+	
+	document.getElementById("answer").innerHTML = summary.topic;
 }	
 
 function makeButton()
