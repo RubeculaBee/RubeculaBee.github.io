@@ -32,6 +32,7 @@ async function testConnection(){
 		
 		if(data["keyFound"]){ //If key is found!
 			console.log("Key was found!");
+			window.location.replace("backend/gemini.html");
 			
 		}else{ //If key is NOT found!
 			console.log("Key Was not found!");
