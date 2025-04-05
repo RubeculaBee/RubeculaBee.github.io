@@ -69,7 +69,7 @@ async function saveAPIKey(){
 	
 	//Receive data from Flask
 	if(data["keyUploaded"]){
-		window.location.replace("gemini.html")
+		window.location.replace("upload.html")
 	}
 }
 
