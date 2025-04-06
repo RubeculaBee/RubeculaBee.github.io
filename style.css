@@ -121,7 +121,7 @@ button{
 }
 
 .callToAction{
-	font-size: 36px;
+	font-size: 32px;
 	width: fit-content;
 	margin: 30px auto 30px auto;
 	padding: 25px;
@@ -183,6 +183,47 @@ input[type="file"]::file-selector-button {
 	display: block;
 	width: fit-content;
 	margin: 40px auto 40px auto;
+}
+
+#question{
+	text-align: center;
+	color: white;
+	background-color: #4277c3;
+	padding: 15px;
+	border-radius: 20px 20px 0px 0px;
+	margin: 0px;
+}
+
+#questionCard{
+	width: 50%;
+	margin: auto;
+}
+
+#answerSection{
+	background-color: white;
+	border-radius: 0px 0px 20px 20px;
+}
+
+.answer{
+	padding: 15px;
+}
+
+#result{
+	width: 15%;
+	border: solid;
+	margin: 30px auto 30px auto;
+	text-align: center;
+	color: white;
+	border-color: gray;
+	background-color: gray;
+	border-radius: 30px;
+	font-size: 24px;
+	padding: 5px;
+}
+
+.navButton{
+	margin: 15px;
+	font-size: 20px;
 }
 
 @keyframes pulse {

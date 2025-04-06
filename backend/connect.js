@@ -191,12 +191,17 @@ async function quizFunc(method)
 		if(answers[quiz["correct"]-1].checked)
 		{
 			console.log("Correct!!!")
-			result.innerHTML = "You got the answer Correct!"
+			result.innerHTML = "Correct!"
+			result.style.borderColor = "green";
+			result.style.backgroundColor = "green";
+			
 		}
 		else
 		{
 			console.log("False :((")
-			result.innerHTML = "I'm sorry, that was the wrong answer."
+			result.innerHTML = "Incorrect!"
+			result.style.borderColor = "red";
+			result.style.backgroundColor = "red";
 		}
 		
 		submitButton.setAttribute('onclick', 'quizFunc("post")');

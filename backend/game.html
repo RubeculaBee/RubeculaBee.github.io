@@ -8,31 +8,46 @@
 				quizFunc('post');
 			}
 		</script>
+		<link rel="stylesheet" href="../style.css">
 	</head>
 	<body>
-		<h1>Test your knowledge!</h1>
+		<div id="titleBar">Sneky.tech</div>
+		<h1 class="callToAction">Quiz</h1>
 		
-		<p id="question">Question:<p>
+		<div id="questionCard">
+			<h1 id="question">Question:</h1>
+			<div id="answerSection">
+				<div class="answer">
+					<input id ="answer1" type="radio" name="answer">
+					<label for="answer1" id="label1">test1</label>
+				</div>
+				
+				<div class="answer">
+					<input id ="answer2" type="radio" name="answer">
+					<label for="answer2" id="label2">test2</label>
+				</div>
+				
+				<div class="answer">
+					<input id ="answer3" type="radio" name="answer">
+					<label for="answer3" id="label3">test3</label>
+				</div>
+				
+				<div class="answer">
+					<input id ="answer4" type="radio" name="answer">
+					<label for="answer4" id="label4">test4</label>
+				</div>
+			</div>
+		</div>
 		
-		<input id ="answer1" type="radio" name="answer">
-		<label for="answer1" id="label1">test1</label>
-		<br>
+		<p id="result">Result</p>
 		
-		<input id ="answer2" type="radio" name="answer">
-		<label for="answer2" id="label2">test2</label>
-		<br>
+		<div style="width: fit-content; margin: auto;">
+			<button id="submitButton" onclick="quizFunc('get')">Submit</button>
+		</div>
 		
-		<input id ="answer3" type="radio" name="answer">
-		<label for="answer3" id="label3">test3</label>
-		<br>
+		<div style="display: flex; justify-content: space-between;">
+				<button class="navButton" onclick="window.location.replace('gemini.html')">Review Notes</button>
+		</div>
 		
-		<input id ="answer4" type="radio" name="answer">
-		<label for="answer4" id="label4">test4</label>
-		<br>
-		
-		<button id="submitButton" onclick="quizFunc('get')">Submit</button>
-		<br>
-		
-		<p id="result">Your answer:</p>
 	</body>
 </html>

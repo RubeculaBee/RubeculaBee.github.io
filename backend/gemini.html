@@ -8,113 +8,14 @@
 				askQuestion();
 			}
 		</script>
-		<style>
-			body{
-				background-color: #f0f0f0;
-				font-family: sans-serif;
-				margin: 0px;
-			}
-			#topic{
-				background-color: yellowgreen;
-				color: white;
-				width: fit-content;
-				margin: 30px auto 30px auto;
-				padding: 25px;
-				border-radius: 30px;
-			}
-			#infoLists{
-				display: flex;
-				justify-content: center;
-			}
-			.summaryLists{
-				width: 40%;
-				margin-left: auto;
-				margin-right: auto;
-			}
-			.summaryLists > ul{
-				 background-color: white;
-				 margin: 0px;
-				 border-radius: 0px 0px 20px 20px;
-			}
-			.summaryLists > ol{
-				background-color: white;
-				margin: 0px;
-				border-radius: 0px 0px 20px 20px;
-			}
-			.summaryLists > h1{
-				text-align: center;
-				color: white;
-				background-color: blue;
-				padding: 15px;
-				border-radius: 20px 20px 0px 0px;
-				margin: 0px;
-			}
-			li{
-				padding: 10px;
-			}
-			#notes{
-				display: none;
-			}
-			#titleBar{
-				background-color: #5BC8B2;
-				font-family: monospace;
-				padding: 15px;
-				color: white;
-				text-align: right;
-				font-size: 35px;
-			}
-			.blob {
-				background: #ADD8E6;
-				border-radius: 50%;
-				margin: 10px;
-				height: 50px;
-				width: 50px;
-
-				box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
-				transform: scale(1);
-				animation: pulse 2s infinite;
-			}
-			#loadingArea{
-				margin-left: auto;
-				margin-right: auto;
-				margin-top: 10%;
-				width: 256px;
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				justify-content: center;
-				border: solid;
-				border-radius: 50%;
-				border-color: #ADD8E6;
-				height: 256px;
-				color: #ADD8E6;
-			}
-
-			@keyframes pulse {
-				0% {
-					transform: scale(0.95);
-					box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-				}
-
-				70% {
-					transform: scale(1);
-					box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-				}
-
-				100% {
-					transform: scale(0.95);
-					box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-				}
-			}
-
-		</style>
+		<link rel="stylesheet" href="../style.css">
 	</head>
 	<body>
 		<div id="titleBar">Sneky.tech</div>
 		
 		<div id="loadingArea">
 			<div class="blob"></div>
-			<p id="loadingMessage">Analyzing Audio...</p>
+			<p id="loadingMessage">Generating Notes...</p>
 		</div>
 		
 		<div id="notes">
@@ -129,7 +30,11 @@
 					<ol id="exampleProb"></ol>
 				</div>
 			</div>
-			<button onclick="window.location.replace('game.html')">Take a Quiz!</button>
+			
+			<div style="display: flex; justify-content: space-between;">
+				<button class="navButton" onclick="window.location.replace('upload.html')">Upload New Lecture</button>
+				<button class="navButton" onclick="window.location.replace('game.html')">Take a Quiz!</button>
+			</div>
 		</div>
 		
 	</body>
