@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Upload your files!</title>
+		<script src="connect.js"></script>
+		<link rel="stylesheet" href="../style.css">
+	</head>
+	<body>
+		<div id="titleBar">
+			<div id="tagline">The Premier Study Tool...</div>
+			<div><a href="../index.html">Sneky.Tech</a></div>
+		</div>
+		
+		<h1 class="callToAction">Upload the Content You Want To Study</h1>
+		
+		<iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+		
+		<form id="fileSubmitForm" action="http://127.0.0.1:5000/saveFile" target="dummyframe" method="POST" enctype="multipart/form-data">
+<!--
+			<label id="chooseFileButton" for="audioFile">Upload Audio File</label>
+-->
+			<input id="audioFile" type="file" name="file" accept="audio/*">
+			<input id="fileSubmitButton"onclick="makeButton()" type="submit" value="Upload">
+		</form>
+	</body>	
+</html>

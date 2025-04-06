@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Game!</title>
+		<script src="connect.js"></script>
+		<script>
+			window.onload = (event) => {
+				quizFunc('post');
+			}
+		</script>
+		<link rel="stylesheet" href="../style.css">
+	</head>
+	<body>
+		<div id="titleBar">
+			<div id="tagline">The Premier Study Tool...</div>
+			<div><a href="../index.html">Sneky.Tech</a></div>
+		</div>
+		
+		<h1 class="callToAction">Quiz</h1>
+		
+		<div id="questionCard">
+			<h1 id="question">Question:</h1>
+			<div id="answerSection">
+				<div class="answer">
+					<input id ="answer1" type="radio" name="answer">
+					<label for="answer1" id="label1">test1</label>
+				</div>
+				
+				<div class="answer">
+					<input id ="answer2" type="radio" name="answer">
+					<label for="answer2" id="label2">test2</label>
+				</div>
+				
+				<div class="answer">
+					<input id ="answer3" type="radio" name="answer">
+					<label for="answer3" id="label3">test3</label>
+				</div>
+				
+				<div class="answer">
+					<input id ="answer4" type="radio" name="answer">
+					<label for="answer4" id="label4">test4</label>
+				</div>
+			</div>
+		</div>
+		
+		<p id="result">Result</p>
+		
+		<div style="width: fit-content; margin: auto;">
+			<button id="submitButton" onclick="quizFunc('get')">Submit</button>
+		</div>
+		
+		<div style="display: flex; justify-content: space-between;">
+				<button class="navButton" onclick="window.location.replace('gemini.html')">Review Notes</button>
+		</div>
+		
+	</body>
+</html>

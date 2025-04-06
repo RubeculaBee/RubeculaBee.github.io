@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Gemini</title>
+		<script src="connect.js"></script>
+		<script>
+			window.onload = (event) => {
+				askQuestion();
+			}
+		</script>
+		<link rel="stylesheet" href="../style.css">
+	</head>
+	<body>
+		<div id="titleBar">
+			<div id="tagline">The Premier Study Tool...</div>
+			<div><a href="../index.html">Sneky.Tech</a></div>
+		</div>
+		
+		<div id="loadingArea">
+			<div class="blob"></div>
+			<p id="loadingMessage">Generating Notes...</p>
+		</div>
+		
+		<div id="notes">
+			<h1 id="topic"></h1>
+			<div id="infoLists">
+				<div class="summaryLists">
+					<h1>Key Points</h1>
+					<ul id="kpoints"></ul>
+				</div>
+				<div class="summaryLists">
+					<h1>Example Problem from Lecture</h1>
+					<ol id="exampleProb"></ol>
+				</div>
+			</div>
+			
+			<div style="display: flex; justify-content: space-between;">
+				<button class="navButton" onclick="window.location.replace('upload.html')">Upload New Lecture</button>
+				<button class="navButton" onclick="window.location.replace('game.html')">Take a Quiz!</button>
+			</div>
+		</div>
+		
+	</body>
+</html>
