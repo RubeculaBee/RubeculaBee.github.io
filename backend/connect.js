@@ -133,9 +133,7 @@ function makeButton()
 }
 
 async function quizFunc(method)
-{	
-	
-	
+{		
 	// when page loads
 	if(method == "post")
 	{	
@@ -147,14 +145,24 @@ async function quizFunc(method)
 		
 		// turn string literal into json object
 		quiz = JSON.parse(data["answer"])
-	
 		console.log(quiz);
 		
 		// get where the question text should be displayed
 		question= document.getElementById("question");
 		
+		// get submit button
+		submitButton = document.getElementById("submitButton");
+		
+		// reset submit button
+		submitButton.setAttribute('onclick', 'quizFunc("get")');
+		submitButton.innerHTML = "Submit Answer"
+		
 		// display the question
 		question.innerHTML = quiz["question"]
+		
+		//get where the result should be displayed
+		result = document.getElementById("result");
+		result.innerHTML = ""
 		
 		// get each question label and store it in an array
 		let labels  = [];
@@ -179,9 +187,6 @@ async function quizFunc(method)
 		}
 		console.log(answers)
 		
-		//get where the result should be displayed
-		result = document.getElementById("result");
-		
 		if(answers[quiz["correct"]-1].checked)
 		{
 			console.log("Correct!!!")
@@ -192,5 +197,8 @@ async function quizFunc(method)
 			console.log("False :((")
 			result.innerHTML = "I'm sorry, that was the wrong answer."
 		}
+		
+		submitButton.setAttribute('onclick', 'quizFunc("post")');
+		submitButton.innerHTML = "New question"
 	}
 }
