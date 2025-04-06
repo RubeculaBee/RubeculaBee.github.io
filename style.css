@@ -120,6 +120,45 @@ button{
 	color: #317873;
 }
 
+.callToAction{
+	font-size: 36px;
+	width: fit-content;
+	margin: 30px auto 30px auto;
+	padding: 25px;
+	border: solid;
+	background-color: white;
+	border-radius: 25px;
+	color: #191970;
+}
+
+#fileSubmitForm{
+	margin: auto;
+	width: 50%;
+	display: flex;
+	justify-content: space-between;
+}
+
+input[type="file"]::file-selector-button {
+	font-size: 24px;
+	padding: 10px;
+	text-align-last: center;
+	background-color: #48bf91;
+	border: none;
+	border-radius: 30px;
+	color: white;
+	
+}
+
+#fileSubmitButton{
+	text-align: center;
+	font-size: 24px;
+	padding: 10px;
+	background-color: #48bf91;
+	border: none;
+	border-radius: 30px;
+	color: white;
+}
+
 .hero-image {
   /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
   background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("hero.jpg");
@@ -132,6 +171,18 @@ button{
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+#contButton{
+	font-size: 30px;
+	background-color: #ADD8E6;
+	border-radius: 15px;
+	padding: 15px;
+	border: none;
+	cursor: pointer;
+	display: block;
+	width: fit-content;
+	margin: 40px auto 40px auto;
 }
 
 @keyframes pulse {
