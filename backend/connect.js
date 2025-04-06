@@ -44,7 +44,7 @@ async function testConnection(){
 		//Add code here to redirect to put out error message saying not connected!
 		//output.innerHTML = "NOT CONNECTED!"
 		console.log("failed")
-		errorMessage.innerHTML = "Failed to connect!"
+		alert("Unable to connect to the client. Please see troubleshooting section.")
 	}
 	
 }

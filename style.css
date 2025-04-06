@@ -1,48 +1,152 @@
-body
-{
-	background-color: #cca262;
+body{
+	background-color: #f0f0f0;
+	font-family: sans-serif;
+	margin: 0px;
 }
-
-p
-{
-	font-size: 1.5em;
+#topic{
+	background-color: yellowgreen;
+	color: white;
+	width: fit-content;
+	margin: 30px auto 30px auto;
+	padding: 25px;
+	border-radius: 30px;
 }
-
-#logo
-{
-	display: block;
-	margin: auto;
-	
+#infoLists{
+	display: flex;
+	justify-content: center;
 }
-
-h1
-{
+.summaryLists{
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.summaryLists > ul{
+	 background-color: white;
+	 margin: 0px;
+	 border-radius: 0px 0px 20px 20px;
+}
+.summaryLists > ol{
+	background-color: white;
+	margin: 0px;
+	border-radius: 0px 0px 20px 20px;
+}
+.summaryLists > h1{
 	text-align: center;
+	color: white;
+	background-color: blue;
+	padding: 15px;
+	border-radius: 20px 20px 0px 0px;
+	margin: 0px;
 }
-
-#instruction
-{
-	margin-left: 4%;
-	width: 46%;
+li{
+	padding: 10px;
 }
-
-#startButtons
-{
-	position: fixed;
-	margin-left: 75%
+#notes{
+	display: none;
 }
+#titleBar{
+	background-color: #5BC8B2;
+	font-family: monospace;
+	padding: 15px;
+	color: white;
+	text-align: right;
+	font-size: 35px;
+}
+.blob {
+	background: #ADD8E6;
+	border-radius: 50%;
+	margin: 10px;
+	height: 50px;
+	width: 50px;
 
-button
-{
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	transform: scale(1);
+	animation: pulse 2s infinite;
+}
+#loadingArea{
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 10%;
 	width: 256px;
-	height: 64px;
-	font-size: 1.2em;
-	margin-bottom: 16px;
-	border-radius: 0px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	border: solid;
+	border-radius: 50%;
+	border-color: #ADD8E6;
+	height: 256px;
+	color: #ADD8E6;
 }
 
-#err
-{
-	text-align: center;
-	color: #c90000;
+#startButtons{
+	display: flex;
+	margin: auto;
+	width: 33%;
+	justify-content: space-evenly;
+}
+
+#welcome{
+	font-size: 48px;
+	width: fit-content;
+	margin: 30px auto 30px auto;
+	padding: 48px;
+	font-family: monospace;
+	border: solid;
+	background-color: white;
+	border-radius: 40%;
+	color: #191970;
+}
+
+button{
+	font-size: 30px;
+	background-color: #ADD8E6;
+	border-radius: 15px;
+	padding: 15px;
+	border: none;
+	cursor: pointer;
+}
+
+.generalContent{
+	margin: 20px;
+	background-color: #f9f9f7;
+	padding: 15px;
+	border-radius: 30px;
+	display: flex;
+	justify-content: space-between;
+}
+
+.generalContent > h1{
+	color: #317873;
+}
+
+.hero-image {
+  /* Use "linear-gradient" to add a darken background effect to the image (photographer.jpg). This will make the text easier to read */
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("hero.jpg");
+
+  /* Set a specific height */
+  height: 50%;
+  padding: 75px;
+
+  /* Position and center the image to scale nicely on all screens */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
 }
