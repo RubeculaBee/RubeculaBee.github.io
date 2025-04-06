@@ -63,13 +63,11 @@ def askQuestion():
 	f = open("apikey.txt", "r")
 	key = f.read()
 	f.close()
-	
-	print("transcribe file")
-	
-	model = whisper.load_model("tiny.en")
-	result = model.transcribe(os.path.join(app.config['UPLOAD_FOLDER'], 'audio'))
-	
-	transcription = result['text']
+    
+    #Open transcript file
+	f = open("transcript.txt", "r")
+	transcription = f.read()
+	f.close()
 	
 	data = request.json
 	
@@ -104,6 +102,15 @@ def saveFile():
     file = request.files['file']
     filename = 'audio'
     file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+    
+    print("transcribe file")
+	
+    model = whisper.load_model("tiny.en")
+    result = model.transcribe(os.path.join(app.config['UPLOAD_FOLDER'], 'audio'))
+    
+    f = open("transcript.txt", "w")
+    f.write(result['text'])
+    f.close()
     
     response = jsonify({'message': "File Uploaded!"})
     return response, 200
