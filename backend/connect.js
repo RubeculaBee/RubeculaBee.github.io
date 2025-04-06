@@ -123,7 +123,8 @@ async function askQuestion(){
 function makeButton()
 {
 	continueButton = document.createElement('button');
-	continueButton.innerHTML = "Continue"
+	continueButton.innerHTML = "View Notes"
+	continueButton.id = "contButton";
 	continueButton.onclick = function()
 	{
 		window.location.replace("gemini.html")
