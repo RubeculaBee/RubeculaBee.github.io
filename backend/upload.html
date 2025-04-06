@@ -4,6 +4,7 @@
 		<title>Upload your files!</title>
 		<script src="connect.js"></script>
 		<link rel="stylesheet" href="../style.css">
+		<link rel="icon" type="image/x-icon" href="../favicon.png">
 	</head>
 	<body>
 		<div id="titleBar">
@@ -13,7 +14,7 @@
 		
 		<h1 class="callToAction">Upload the Content You Want To Study</h1>
 		
-		<iframe name="dummyframe" id="dummyframe" style="display: none;"></iframe>
+		<iframe name="dummyframe" id="dummyframe" style="display: none;" onload="myFunction(this.contentDocument)"></iframe>
 		
 		<form id="fileSubmitForm" action="http://127.0.0.1:5000/saveFile" target="dummyframe" method="POST" enctype="multipart/form-data">
 <!--
@@ -22,5 +23,29 @@
 			<input id="audioFile" type="file" name="file" accept="audio/*">
 			<input id="fileSubmitButton"onclick="makeButton()" type="submit" value="Upload">
 		</form>
+		<div id="loadingAreaUpload">
+			<div class="blobUpload"></div>
+			<p id="loadingMessageUpload">Analyzing Audio...
+			<br><span style="font-size: 12px;">(This could take awhile)</span>
+			</p>
+		</div>
+		
+		<script>
+			function myFunction(info){
+				if(info == null){
+					console.log("Successfully uploaded file!");
+					
+					//Hide the loading area
+					loadingArea = document.getElementById("loadingAreaUpload");
+					loadingArea.style.display = "none";
+					
+					continueButton = document.createElement('button');
+					continueButton.innerHTML = "View Notes"
+					continueButton.id = "contButton";
+					continueButton.onclick = function(){window.location.replace("gemini.html")};
+					document.body.appendChild(continueButton);
+				}
+			}
+		</script>
 	</body>	
 </html>
