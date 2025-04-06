@@ -226,6 +226,29 @@ input[type="file"]::file-selector-button {
 	font-size: 20px;
 }
 
+#keyInput{
+	display: block;
+	width: fit-content;
+	margin: auto;
+	padding: 15px;
+}
+
+#apikey{
+	display: block;
+	margin: auto;
+	border-radius: 25px;
+	border: 1px solid;
+	padding: 5px;
+	color: #191970;
+	width: 100%;
+	text-align: center;
+}
+
+#saveButton{
+	margin-top: 15px;
+	width: 100%;
+}
+
 @keyframes pulse {
 	0% {
 		transform: scale(0.95);

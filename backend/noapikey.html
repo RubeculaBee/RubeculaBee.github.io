@@ -3,13 +3,17 @@
 	<head>
 		<title>NO API KEY!</title>
 		<script src="connect.js"></script>
+		<link rel="stylesheet" href="../style.css">
 	</head>
 	<body>
-		<h1>You do not have an API Key!!!</h1>
-		<p>
-		Please input your API Key <input id="apikey" type="text">
-		<br>
-		<button onclick="saveAPIKey()">Create and save API Key</button>
-		</p>
+		<div id="titleBar">Sneky.tech</div>
+		
+		<h1 class="callToAction">Enter your Gemini API Key</h1>
+		
+		<div id="keyInput">
+			<input id="apikey" type="text" placeholder="Key Here...">
+			<br>
+			<button id="saveButton" onclick="saveAPIKey()">Create and save API Key</button>
+		</div>
 	</body>
 </html>
