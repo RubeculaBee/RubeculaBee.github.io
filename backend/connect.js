@@ -74,10 +74,10 @@ async function saveAPIKey(){
 }
 
 async function askQuestion(){
-	userInstructions = document.getElementById("instructions").value;
+	//userInstructions = document.getElementById("instructions").value;
 	
 	const info = {
-		"instruction": userInstructions
+		"instruction": "MAKE THIS A GET SOON!!!"
 	};
 	
 	const data = await fetchUrlData("http://127.0.0.1:5000/question", {
@@ -96,8 +96,28 @@ async function askQuestion(){
 	console.log(summary);
 	
 	//After this point we need to actually put the JSON onto the gemini page
+	document.getElementById("topic").innerHTML = summary.topic;
 	
-	document.getElementById("answer").innerHTML = summary.topic;
+	keyPointList = document.getElementById("kpoints");
+	exampleProbList = document.getElementById("exampleProb");
+	
+	//Populate our Key Points List
+	for( let i = 0; i < summary.keyPoints.length; i++){
+		point = document.createElement('li');
+		point.innerHTML = summary.keyPoints[i];
+		keyPointList.appendChild(point);
+	}
+	
+	//Populate our Example Problem List
+	for( let i = 0; i < summary.exampleProblem.length; i++){
+		step = document.createElement('li');
+		step.innerHTML = summary.exampleProblem[i];
+		exampleProbList.appendChild(step);
+	}
+	
+	document.getElementById("notes").style.display = "block";
+	document.getElementById("loadingMessage").style.display = "none";
+	
 }	
 
 function makeButton()
@@ -110,4 +130,8 @@ function makeButton()
 	}
 	
 	document.body.appendChild(continueButton);
+}
+
+function printThing(){
+	console.log("THING!");
 }

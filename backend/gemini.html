@@ -3,22 +3,61 @@
 	<head>
 		<title>Gemini</title>
 		<script src="connect.js"></script>
+		<script>
+			window.onload = (event) => {
+				askQuestion();
+			}
+		</script>
+		<style>
+			body{
+				background-color: #d5b59c;
+				font-family: sans-serif;
+			}
+			#topic{
+				text-align: center;
+			}
+			#infoLists{
+				display: flex;
+				justify-content: center;
+			}
+			.summaryLists{
+				width: 50%;
+			}
+			.summaryLists > h1{
+				text-align: center;
+			}
+			#notes{
+				display: none;
+			}
+		</style>
 	</head>
 	<body>
 		<h1>Summarize your audio!</h1>
+<!--
 		<div>
-			
 			<p>(optional) Give Gemini specific instructions: <input id="instructions" type="text"></p>
 			<button onclick="askQuestion()">Summarize!</button>
 		</div>
-		<p id="answer">
+-->
 		
-		</p>
+		<h1 id="loadingMessage">Analyzing Audio...</h1>
 		
-		<h1 id="topic"></h1>
-		
-		<div>
-			
+		<div id="notes">
+			<h1 id="topic"></h1>
+			<div id="infoLists">
+				<div class="summaryLists">
+					<h1>Key Points</h1>
+					<ul id="kpoints">
+					</ul>
+				</div>
+				<div class="summaryLists">
+					<h1>Example Problem from Lecture</h1>
+					<ol id="exampleProb">
+					
+					</ol>
+				</div>
+			</div>
 		</div>
+		
 	</body>
 </html>

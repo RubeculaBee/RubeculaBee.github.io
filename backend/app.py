@@ -74,7 +74,7 @@ def askQuestion():
 	data = request.json
 	
 	#userQuestion = "I am giving you the transcript of a lecture. When you summarize the following transcript, I want you to pull out specifc information and sort them into sections. The first section should be a single sentence description of the topic of the lecture. The second section should be the key points taught in the lecture. The third section should be an example of a problem that was taught in the lecture, and you should work through that problem step by step. Your response should come in the form of a JSON file. Summarize this: " + transcription
-	userQuestion = "Summarize this transcript of a lecture. Please make sure to extract information about the lecture's overall TOPIC, KEY POINTS from the lecture, and an example problem discussed (if present): " + transcription
+	userQuestion = "Summarize this transcript of a lecture. Please make sure to return information about the lecture's overall TOPIC, KEY POINTS from the lecture, and an example problem (if present in transcription) discussed and explained in a step-by-step manner: " + transcription
 	userInstruction = data["instruction"]
 	
 	client = genai.Client(api_key=key)
