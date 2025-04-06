@@ -15,6 +15,11 @@ class studyInfo(BaseModel):
 	keyPoints: list[str]
 	exampleProblem: list[str]
 
+class questionStructure(BaseModel):
+    question: str
+    answers: list[str]
+    correct: int
+
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 CORS(app)
@@ -94,8 +99,43 @@ def askQuestion():
 	
 	return response, 200
 	
-	
-	
+@app.route("/makeQuiz", methods=['GET'])
+def makequiz():
+    print("open key")
+    #Open API key file
+    f = open("apikey.txt", "r")
+    key = f.read()
+    f.close()
+    
+    print("open transcript")
+    #Open transcript file
+    f = open("transcript.txt", "r")
+    transcription = f.read()
+    f.close()
+    
+    print("get client")
+    client = genai.Client(api_key=key)
+    
+    print("get prompt")
+    userQuestion = "You will be provided with the transcript of a lecture. Design a multiple choice quiz question based on the topic of the lecture. There should be 4 answers, of which 1 is correct and the other 3 are wrong. You will provide the number of the answer that is correct. Here is the transcript: " + transcription
+    
+    print("generate response")
+    response = client.models.generate_content(
+        model="gemini-2.0-flash",
+        config={
+            'response_mime_type': 'application/json',
+            'response_schema': questionStructure
+        },
+        contents=userQuestion
+    )
+    print(response.text)
+    
+    print("jsonify response")
+    response = jsonify({'answer': response.text})
+    
+    print("return response")
+    return response, 200
+
 	
 @app.route("/saveFile", methods=['POST'])
 def saveFile():

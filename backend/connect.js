@@ -132,28 +132,23 @@ function makeButton()
 	document.body.appendChild(continueButton);
 }
 
-function quizFunc(method)
-{
-	// json string literal storing quiz data
-	quiz = `
-	{
-		"question": "This is an example question",
-		"answers":
-			[
-				"This is test answer number 1",
-				"This is test answer number 2 (correct)",
-				"This is test answer number 3",
-				"This is test answer number 4"
-			],
-		"correct": 1
-	}`
-	// turn string literal into json object
-	quiz = JSON.parse(quiz)
+async function quizFunc(method)
+{	
+	
 	
 	// when page loads
 	if(method == "post")
-	{
-		console.log(quiz)
+	{	
+		// generate quiz
+		const data = await fetchUrlData("http://127.0.0.1:5000/makeQuiz", {
+			method: 'GET',
+			headers: { 'Content-Type' : 'application/json' }
+		});
+		
+		// turn string literal into json object
+		quiz = JSON.parse(data["answer"])
+	
+		console.log(quiz);
 		
 		// get where the question text should be displayed
 		question= document.getElementById("question");
@@ -177,7 +172,7 @@ function quizFunc(method)
 	//when submit button clicked
 	if(method == "get")
 	{
-		// get each answer button
+		// get each answer buttons
 		let answers = [];
 		for(let i = 0; i < 4; i++){
 			answers.push(document.getElementById("answer"+(i+1)));
