@@ -154,6 +154,8 @@ def saveFile():
     
     response = jsonify({'message': "File Uploaded!"})
     return response, 200
+    
+    return simplePage
 
     
 if __name__ == '__main__':

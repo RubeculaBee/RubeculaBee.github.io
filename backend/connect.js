@@ -122,15 +122,8 @@ async function askQuestion(){
 
 function makeButton()
 {
-	continueButton = document.createElement('button');
-	continueButton.innerHTML = "View Notes"
-	continueButton.id = "contButton";
-	continueButton.onclick = function()
-	{
-		window.location.replace("gemini.html")
-	}
-	
-	document.body.appendChild(continueButton);
+	loadingArea = document.getElementById("loadingAreaUpload");
+	loadingArea.style.display = "flex";
 }
 
 async function quizFunc(method)
