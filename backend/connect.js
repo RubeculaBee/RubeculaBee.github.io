@@ -131,3 +131,71 @@ function makeButton()
 	
 	document.body.appendChild(continueButton);
 }
+
+function quizFunc(method)
+{
+	// json string literal storing quiz data
+	quiz = `
+	{
+		"question": "This is an example question",
+		"answers":
+			[
+				"This is test answer number 1",
+				"This is test answer number 2 (correct)",
+				"This is test answer number 3",
+				"This is test answer number 4"
+			],
+		"correct": 1
+	}`
+	// turn string literal into json object
+	quiz = JSON.parse(quiz)
+	
+	// when page loads
+	if(method == "post")
+	{
+		console.log(quiz)
+		
+		// get where the question text should be displayed
+		question= document.getElementById("question");
+		
+		// display the question
+		question.innerHTML = quiz["question"]
+		
+		// get each question label and store it in an array
+		let labels  = [];
+		for(let i = 0; i < 4; i++){
+			labels.push(document.getElementById("label"+(i+1)));
+		}
+		console.log(labels)
+		
+		// set the each labels question to the answer options
+		for(let i = 0; i<labels.length; i++){
+			labels[i].innerHTML = quiz["answers"][i]
+		}
+	}
+	
+	//when submit button clicked
+	if(method == "get")
+	{
+		// get each answer button
+		let answers = [];
+		for(let i = 0; i < 4; i++){
+			answers.push(document.getElementById("answer"+(i+1)));
+		}
+		console.log(answers)
+		
+		//get where the result should be displayed
+		result = document.getElementById("result");
+		
+		if(answers[quiz["correct"]-1].checked)
+		{
+			console.log("Correct!!!")
+			result.innerHTML = "You got the answer Correct!"
+		}
+		else
+		{
+			console.log("False :((")
+			result.innerHTML = "I'm sorry, that was the wrong answer."
+		}
+	}
+}

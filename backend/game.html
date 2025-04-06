@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Game!</title>
+		<script src="connect.js"></script>
+		<script>
+			window.onload = (event) => {
+				quizFunc('post');
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Test your knowledge!</h1>
+		
+		<p id="question">Question:<p>
+		
+		<input id ="answer1" type="radio" name="answer">
+		<label for="answer1" id="label1">test1</label>
+		<br>
+		
+		<input id ="answer2" type="radio" name="answer">
+		<label for="answer2" id="label2">test2</label>
+		<br>
+		
+		<input id ="answer3" type="radio" name="answer">
+		<label for="answer3" id="label3">test3</label>
+		<br>
+		
+		<input id ="answer4" type="radio" name="answer">
+		<label for="answer4" id="label4">test4</label>
+		<br>
+		
+		<button onclick="quizFunc('get')">Submit</button>
+		<br>
+		
+		<p id="result">Your answer:</p>
+	</body>
+</html>
