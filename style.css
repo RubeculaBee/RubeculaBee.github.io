@@ -51,10 +51,20 @@ li{
 	color: white;
 	text-align: right;
 	font-size: 35px;
+	display: flex;
+	justify-content: space-between;
 }
+
 a{
 	text-decoration: none;
 	color: white;
+}
+
+#tagline
+{
+	color: rgba(255,255,255,0.5);
+	font-style: italic;
+	margin-left: 5%;
 }
 
 .blob {
