@@ -116,7 +116,7 @@ async function askQuestion(){
 	}
 	
 	document.getElementById("notes").style.display = "block";
-	document.getElementById("loadingMessage").style.display = "none";
+	document.getElementById("loadingArea").style.display = "none";
 	
 }	
 
@@ -130,8 +130,4 @@ function makeButton()
 	}
 	
 	document.body.appendChild(continueButton);
-}
-
-function printThing(){
-	console.log("THING!");
 }
